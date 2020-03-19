@@ -1,0 +1,28 @@
+pipeline {
+   agent any
+   tools {
+      maven 'Maven'
+   }
+   stages {
+       stage("Build") {
+                steps {
+                    snDevOpsStep ()
+                    echo "Building" 
+                }
+       }
+      stage("Test") {
+           steps {
+               snDevOpsStep ()
+               echo "Testing"
+           }
+        }
+    
+      stage("Deploy") {
+             steps{
+                  snDevOpsStep ()
+                  echo "deploy in progress"        
+              }
+      }      
+      
+  }
+}
